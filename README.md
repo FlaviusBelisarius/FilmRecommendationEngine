@@ -18,7 +18,7 @@ The IMDB is the IMDB score (vote_average in dataset). The Φ represents gaussian
 <p align="center">
   <img src="https://github.com/FlaviusBelisarius/FilmRecommendationEngine/blob/master/img-storage/ReadmePic2.png" />
 </p>  
-The two gaussians represent two different aspects: release time and the number of user votes. 
+The two gaussians represent two different aspects: release time and the number of user votes.   
 ### The first gaussian: Release time gaussian function (the closer the better)
 As we assumed, similar release years could also be regarded as a kind of similarity. For the first gaussian, the c1(expected value of published year) is the published year of the movie user input. The x will be the published year of the 31 different movies. I set σ1 = 20 currently(which is not a good idea, 15, 30 and 40 also works, it seems like 20 works best). This is because many movies in the dataset were released from 1980s to 2010s. I need to set σ1 has same scale with (x-c). 
 The smaller the difference between the release year of the movie entered by the user and the movie currently selected to calculate the score, the greater the value obtained by the first Gaussian function.
