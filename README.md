@@ -10,9 +10,9 @@ User gives a movie name as input, then the engine will recommend 5 other movies 
 ### Explanation of the mathematical model: 
 After calculating the “content similarity” between the movies by Euclid distance, 31 different movies that are closest in content to the movies entered by the user are selected. The Euclid distance between films is derived from the content of films, but the similarity of films is not limited to this. Similar release years and similar evaluations can be regarded as a reflection of similarity. But the “content similarity” will only use at here. 
 The engine will recommend the 5 “best” films among the 31 movies. We use a new score to rank the 31 movies. This score is calculated according to this model:   
-![Image text](https://github.com/FlaviusBelisarius/FilmRecommendationEngine/blob/master/img-storage/ReadmePic1.png)<div align=center>  
+<div align=center>![Image text](https://github.com/FlaviusBelisarius/FilmRecommendationEngine/blob/master/img-storage/ReadmePic1.png)</div>  
 The IMDB is the IMDB score (vote_average in dataset). The Φ represents gaussian function.   
-![Image text](https://github.com/FlaviusBelisarius/FilmRecommendationEngine/blob/master/img-storage/ReadmePic2.png)<div align=center>  
+<div align=center>![Image text](https://github.com/FlaviusBelisarius/FilmRecommendationEngine/blob/master/img-storage/ReadmePic2.png)</div>  
 The two gaussians represent two different aspects: release time and the number of user votes. 
 ### The first gaussian: Release time gaussian function (the closer the better)
 As we assumed, similar release years could also be regarded as a kind of similarity. For the first gaussian, the c1(expected value of published year) is the published year of the movie user input. The x will be the published year of the 31 different movies. I set σ1 = 20 currently(which is not a good idea, 15, 30 and 40 also works, it seems like 20 works best). This is because many movies in the dataset were released from 1980s to 2010s. I need to set σ1 has same scale with (x-c). 
